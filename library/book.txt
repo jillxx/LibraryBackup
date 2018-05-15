@@ -1,4 +1,4 @@
-100,Harry Potter,J.K.Rowling,OnShelf
+100,Harry Potter,J.K.Rowling,CheckedOut,Jill,2018-05-29
 101,The Catcher in the Rye,J.D Salinger,OnShelf
 102,Into The Wild,John Krakauer,CheckedOut,Brent,2018-05-28
 103,Death Troopers:Star Wars,Joe Schreiber,OnShelf
@@ -10,3 +10,5 @@
 109,1984,George Orwell,OnShelf
 110,Animal Farm,George Orwell,CheckedOut,Brent,2018-05-28
 111,SuperBetter: The Power of Living Gamefully,Jane McGonigal,CheckedOut,Brent,2018-05-28
+112,fake,book,OnShelf
+113,fake2,book2,OnShelf

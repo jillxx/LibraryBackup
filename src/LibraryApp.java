@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+
+/**
+ * @author Jiao Xu & Brent Coppinger & Julhasur Chowdury
+ * version 1.0.0
+ */
 public class LibraryApp {
 
 	public static void main(String[] args) {
@@ -64,7 +69,7 @@ public class LibraryApp {
 			// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			if (userChoice == 3) {
 				ActionMethod.pullRentList(userID);
-				int bookID = Validator.getInt(scan, "What book would you like to return? (enter BookID): ", 100, 111);
+				int bookID = Validator.getInt(scan, "What book would you like to return? (enter BookID): ");
 
 				ActionMethod.returnMethod(bookID);
 				System.out.println("Please put the book on the shelf. Thank you!\n");
