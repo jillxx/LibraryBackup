@@ -14,10 +14,11 @@ import java.util.Scanner;
 public class ActionMethod {
 
 	static Scanner scan = new Scanner(System.in);
-	static ArrayList<String> rentList = new ArrayList<String>();
+	// static ArrayList<String> rentList = new ArrayList<String>();
 	static ArrayList<String> wholeBook = new ArrayList<String>();
 	static ArrayList<String> search = new ArrayList<String>();
 
+	// adding the information in txt file into an arraylist
 	public static void wholeArrayAdd() {
 		Path readFile = Paths.get("library/book.txt");
 		File file = readFile.toFile();// convert to a file object.
@@ -27,10 +28,10 @@ public class ActionMethod {
 
 			BufferedReader reader = new BufferedReader(fr);// read blocks of info
 
-			String line = reader.readLine();
+			String line = reader.readLine(); // read one line in the txt file
 
 			while (line != null) {
-				wholeBook.add(line);
+				wholeBook.add(line);// this is adding the list to an array which we can modify the txt file
 				line = reader.readLine();
 			}
 
@@ -41,6 +42,7 @@ public class ActionMethod {
 		}
 	}
 
+	// Show the whole booklist for user to chose from
 	public static void readFromBookList() {
 		Path readFile = Paths.get("library/book.txt");
 		File file = readFile.toFile();// convert to a file object.
@@ -51,16 +53,17 @@ public class ActionMethod {
 			BufferedReader reader = new BufferedReader(fr);// read blocks of info
 
 			String line = reader.readLine();
+			// display header
 			System.out.printf("     %1$-50s %2$-20s %3$-10s %4$-15s %5$-15s", "BookTitle", "Author", "BookID", "Status",
 					"Due Date");
 			System.out.println();
 			int counter = 1;
 			while (line != null) {
 				String[] temp = line.split(",");
-				// wholeBook.add(line); this is adding the list to an array which we can modify
-				// the txt file
+
 				Book b = new Book(temp[1], temp[2], temp[3], counter, temp[0]);
 				System.out.print(b);// this is printing the whole list
+				// print the due date if the book is checked out
 				if (temp.length > 4) {
 					System.out.print(temp[5]);
 				}
@@ -77,6 +80,7 @@ public class ActionMethod {
 	}
 
 	// ==============================================================================================
+	// check out method for both inventory function or searching function
 	public static void checkOut(String user, int bookID) {
 		Path readFile = Paths.get("library/book.txt");// get the path of the file
 		File file = readFile.toFile();// convert to a file object.
@@ -95,18 +99,15 @@ public class ActionMethod {
 				if (bookID == borrowInput) {
 					if (!temp1[3].equals(Status.CheckedOut.toString())) {
 						temp1[3] = Status.CheckedOut.toString();
-						// rentList.add(temp1[0] + "," + temp1[1] + "," + temp1[2] + "," + temp1[3] +
-						// "," + user + ","
-						// + LocalDate.now().plusWeeks(2));
-						wholeBook.set(i, temp1[0] + "," + temp1[1] + "," + temp1[2] + "," + temp1[3] + "," + user + ","
-								+ LocalDate.now().plusWeeks(2));        
 
+						wholeBook.set(i, temp1[0] + "," + temp1[1] + "," + temp1[2] + "," + temp1[3] + "," + user + ","
+								+ LocalDate.now().plusWeeks(2));
 
 					} else {
 						System.out.println(temp1[1] + " has been checked out by another person.");
 					}
 				}
-				
+
 				outW.println(wholeBook.get(i));
 			}
 
@@ -122,8 +123,6 @@ public class ActionMethod {
 			if (!file1.renameTo(file)) {
 				System.out.println("Could not rename file");
 			}
-			// System.out.println(rentList.size() + " items has been checked out.");
-			// System.out.println(rentList.get(1));
 
 		} catch (IOException e) {
 			System.out.println("Something went wrong");
@@ -132,7 +131,7 @@ public class ActionMethod {
 	}
 
 	// =================================================================================================
-
+	// display a list for book match the author input
 	public static void researchAuthor(String author, String userID) {
 
 		Path readFile = Paths.get("library/book.txt");
@@ -150,7 +149,6 @@ public class ActionMethod {
 			int counter = 1;
 
 			while (line != null) {
-				// wholeBook.add(line);
 				String[] tempA = line.split(",");
 				Book ba = new Book(tempA[1], tempA[2], tempA[3], counter, tempA[0]);
 				String[] tempAuthor = tempA[2].toLowerCase().split("[ :.,?!]+");
@@ -178,8 +176,9 @@ public class ActionMethod {
 		}
 
 	}
-	// =============================================================================================
 
+	// =============================================================================================
+	// display the books that match the keyword input
 	public static void researchKeyword(String keyword, String userID) {
 
 		Path readFile = Paths.get("library/book.txt");
@@ -225,6 +224,8 @@ public class ActionMethod {
 	}
 
 	// =============================================================================================
+	// check out function to take the scanner input for chosen bookID from mainAPP
+	// and pass it through into checkout method
 	public static void searchCheckout(int bookIDNum, String userID) {
 		for (int i = 0; i < search.size(); i++) {
 			String[] tempRent = search.get(i).split(",");
@@ -238,6 +239,7 @@ public class ActionMethod {
 	}
 
 	// ========================================================================================
+	// to return a book.first show the booklist under the user ID name
 	public static void pullRentList(String userID) {
 		System.out.println("You have the following book.");
 		System.out.printf("     %1$-50s %2$-20s %3$-10s %4$-15s %5$-15s", "BookTitle", "Author", "BookID", "Status",
@@ -260,6 +262,7 @@ public class ActionMethod {
 	}
 
 	// =========================================================
+	// change the status of the chosen book and delete due date
 	public static void returnMethod(String userID, int bookID) {
 		Path readFile = Paths.get("library/book.txt");// get the path of the file
 		File file = readFile.toFile();// convert to a file object.
@@ -309,6 +312,8 @@ public class ActionMethod {
 
 	}
 
+	// =========================================================================================
+	// adding book by adding a line under the current list
 	public static void addBook(String userString) {
 		Path readFile = Paths.get("library/book.txt");// get the path of the file
 		File file = readFile.toFile();// convert to a file object.
