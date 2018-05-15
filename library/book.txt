@@ -1,12 +1,12 @@
-100,Harry Potter,J.K.Rowling,CheckedOut,jill,2018-05-28
+100,Harry Potter,J.K.Rowling,OnShelf
 101,The Catcher in the Rye,J.D Salinger,OnShelf
 102,Into The Wild,John Krakauer,CheckedOut,Brent,2018-05-28
 103,Death Troopers:Star Wars,Joe Schreiber,OnShelf
-104,Path of Destruction: Star Wars Legends,Drew Karpyshyn,CheckedOut,jill,2018-05-28
+104,Path of Destruction: Star Wars Legends,Drew Karpyshyn,OnShelf
 105,The Rule Of Two: Star Wars Legends,Drew Karpyshyn,CheckedOut,Brent,2018-05-28
 106,Darth Bane: Dynasty of Evil: Star Wars Legends,Drew Karpyshyn,CheckedOut,jill,2018-05-28
-107,Hamlet,Shakespeare,OnShelf
-108,Clockwork Orange,Anthony Burgess,CheckedOut,Brent4,2018-05-28
+107,Hamlet,Shakespeare,CheckedOut,jill,2018-05-29
+108,Clockwork Orange,Anthony Burgess,OnShelf
 109,1984,George Orwell,OnShelf
 110,Animal Farm,George Orwell,CheckedOut,Brent,2018-05-28
 111,SuperBetter: The Power of Living Gamefully,Jane McGonigal,CheckedOut,Brent,2018-05-28

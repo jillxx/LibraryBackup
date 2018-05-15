@@ -102,6 +102,7 @@ public class ActionMethod {
 
 						wholeBook.set(i, temp1[0] + "," + temp1[1] + "," + temp1[2] + "," + temp1[3] + "," + user + ","
 								+ LocalDate.now().plusWeeks(2));
+						System.out.println(temp1[1]+"has been checked out.");
 
 					} else {
 						System.out.println(temp1[1] + " has been checked out by another person.");
@@ -263,7 +264,7 @@ public class ActionMethod {
 
 	// =========================================================
 	// change the status of the chosen book and delete due date
-	public static void returnMethod(String userID, int bookID) {
+	public static void returnMethod(int bookID) {
 		Path readFile = Paths.get("library/book.txt");// get the path of the file
 		File file = readFile.toFile();// convert to a file object.
 		Path writeFile = Paths.get("library/temp.txt"); // create a temp file path

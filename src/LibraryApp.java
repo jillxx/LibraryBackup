@@ -31,7 +31,6 @@ public class LibraryApp {
 					ActionMethod.researchAuthor(author, userID);
 					int bookIDNum = Validator.getInt(scan, "\nPlease enter the bookID number you want to borrow: ");
 					ActionMethod.searchCheckout(bookIDNum, userID);
-					System.out.println("The book has been checked out.");
 				}
 
 				else if (searchChoice == 2) {
@@ -67,7 +66,7 @@ public class LibraryApp {
 				ActionMethod.pullRentList(userID);
 				int bookID = Validator.getInt(scan, "What book would you like to return? (enter BookID): ", 100, 111);
 
-				ActionMethod.returnMethod(userID, bookID);
+				ActionMethod.returnMethod(bookID);
 				System.out.println("Please put the book on the shelf. Thank you!\n");
 			}
 			if (userChoice == 4) {
